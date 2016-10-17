@@ -1,0 +1,152 @@
+﻿@model Garage2.Models.Vehicle
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Vehicle</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Regnr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Regnr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Color)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Color)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumberOfWheels)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumberOfWheels)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Wingspan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Wingspan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumberOfPropellers)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumberOfPropellers)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HasMuffler)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HasMuffler)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CubicCentimeter)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CubicCentimeter)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HorsePower)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HorsePower)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsCabriolet)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsCabriolet)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PassengerCapacity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PassengerCapacity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BusNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BusNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaxKnotSpeed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaxKnotSpeed)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.isSailingboat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.isSailingboat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VehicleType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VehicleType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Checkin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Checkin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Checkout)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Checkout)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
