@@ -30,16 +30,22 @@
             @Html.DisplayNameFor(model => model.HasMuffler)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CubicCentimeter)
+            <a href="?sort=cc">
+               @Html.DisplayNameFor(model => model.CubicCentimeter)
+            </a>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.HorsePower)
+            <a href="?sort=hp">
+                @Html.DisplayNameFor(model => model.HorsePower)
+            </a>
         </th>
         <th>
             @Html.DisplayNameFor(model => model.IsCabriolet)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.PassengerCapacity)
+            <a href="?sort=capacity">
+                @Html.DisplayNameFor(model => model.PassengerCapacity)
+            </a>
         </th>
         <th>
             @Html.DisplayNameFor(model => model.BusNumber)
