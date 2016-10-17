@@ -28,6 +28,7 @@ namespace Garage2.Models
     }
     public enum VehicleType
     {
+        Select,
         Car,
         Airplane,
         Boat,

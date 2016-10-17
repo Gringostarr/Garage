@@ -10,22 +10,95 @@
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
-    
+
+
+
+    <script>
+            function hideshow(type)
+            {
+                var common = ["regnr", "color", "numberofwheels", "checkin"];
+                var airplane = ["wingspan", "numberofpropellers"];
+                var motorcycle = ["hasmuffler", "cubiccentimeter"];
+                var car = ["horsepower", "iscabriolet"];
+                var bus = ["passengercapacity", "busnumber"];
+                var boat = ["maxknotspeed", "issailingboat"];
+                var hide = true;
+
+                for (var i = 0; i < common.length; i++) {
+                   document.getElementById(common[i]).hidden = false;
+                }
+                for (var i = 0; i < airplane.length; i++) {
+                    if (type == 2) { hide = false; }
+                    document.getElementById(airplane[i]).hidden = hide;
+                    if (hide == true) {
+                        document.getElementById(airplane[i]).value = 0;
+                    }
+                    hide = true;
+                }
+                for (var i = 0; i < motorcycle.length; i++) {
+                    if (type == 5) { hide = false; }
+                    document.getElementById(motorcycle[i]).hidden = hide;
+                    if (hide == true)
+                    {
+                        document.getElementById(motorcycle[i]).value = 0;
+                    }
+                    hide = true;
+                }
+                for (var i = 0; i < car.length; i++) {
+                    if (type == 1) { hide = false; }
+                    document.getElementById(car[i]).hidden = hide;
+                    if (hide == true) {
+                        document.getElementById(car[i]).value = 0;
+                    }
+                    hide = true;
+                }
+                for (var i = 0; i < bus.length; i++) {
+                    if (type == 4) { hide = false; }
+                    document.getElementById(bus[i]).hidden = hide;
+                    if (hide == true) {
+                        document.getElementById(bus[i]).value = 0;
+                    }
+                    hide = true;
+                }
+                for (var i = 0; i < boat.length; i++) {
+                    if (type == 3) { hide = false; }
+                    document.getElementById(boat[i]).hidden = hide;
+                    if (hide == true) {
+                        document.getElementById(boat[i]).value = 0;
+                    }
+                    hide = true;
+                }
+
+                for (var i = 0; i < common.length; i++) {
+                    document.getElementById(common[i]).hidden = false;
+                }
+
+
+            }
+
+    </script>
+
+
+
+
+
+
+
     <div class="form-horizontal">
         <h4>Vehicle</h4>
         <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-        <div class="form-group">
+
+        <div class="form-group" id="type">
             @Html.LabelFor(model => model.VehicleType, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EnumDropDownListFor(model => model.VehicleType, htmlAttributes: new { @class = "form-control" })
+                @Html.EnumDropDownListFor(model => model.VehicleType, htmlAttributes: new { @class = "form-control", @onchange = "hideshow(this.value)" })
                 @Html.ValidationMessageFor(model => model.VehicleType, "", new { @class = "text-danger" })
             </div>
         </div>
 
-
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
+        <div class="form-group" id="regnr">
             @Html.LabelFor(model => model.Regnr, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Regnr, new { htmlAttributes = new { @class = "form-control" } })
@@ -33,7 +106,7 @@
             </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" id="color">
             @Html.LabelFor(model => model.Color, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Color, new { htmlAttributes = new { @class = "form-control" } })
@@ -41,7 +114,7 @@
             </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" id="numberofwheels">
             @Html.LabelFor(model => model.NumberOfWheels, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.NumberOfWheels, new { htmlAttributes = new { @class = "form-control" } })
@@ -49,7 +122,9 @@
             </div>
         </div>
 
-        <div class="form-group">
+
+
+        <div class="form-group" id="wingspan">
             @Html.LabelFor(model => model.Wingspan, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Wingspan, new { htmlAttributes = new { @class = "form-control" } })
@@ -57,7 +132,7 @@
             </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" id="numberofpropellers">
             @Html.LabelFor(model => model.NumberOfPropellers, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.NumberOfPropellers, new { htmlAttributes = new { @class = "form-control" } })
@@ -65,7 +140,7 @@
             </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" id="hasmuffler">
             @Html.LabelFor(model => model.HasMuffler, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <div class="checkbox">
@@ -75,7 +150,7 @@
             </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" id="cubiccentimeter">
             @Html.LabelFor(model => model.CubicCentimeter, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.CubicCentimeter, new { htmlAttributes = new { @class = "form-control" } })
@@ -83,7 +158,7 @@
             </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" id="horsepower">
             @Html.LabelFor(model => model.HorsePower, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.HorsePower, new { htmlAttributes = new { @class = "form-control" } })
@@ -91,7 +166,7 @@
             </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" id="iscabriolet">
             @Html.LabelFor(model => model.IsCabriolet, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <div class="checkbox">
@@ -101,7 +176,7 @@
             </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" id="passengercapacity">
             @Html.LabelFor(model => model.PassengerCapacity, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.PassengerCapacity, new { htmlAttributes = new { @class = "form-control" } })
@@ -109,7 +184,7 @@
             </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" id="busnumber">
             @Html.LabelFor(model => model.BusNumber, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.BusNumber, new { htmlAttributes = new { @class = "form-control" } })
@@ -117,7 +192,7 @@
             </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" id="maxknotspeed">
             @Html.LabelFor(model => model.MaxKnotSpeed, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.MaxKnotSpeed, new { htmlAttributes = new { @class = "form-control" } })
@@ -125,7 +200,7 @@
             </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" id="issailingboat">
             @Html.LabelFor(model => model.isSailingboat, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <div class="checkbox">
@@ -137,7 +212,7 @@
 
 
 
-        <div class="form-group">
+        <div class="form-group" id="checkin">
             @Html.LabelFor(model => model.Checkin, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Checkin, new { htmlAttributes = new { @class = "form-control" } })
@@ -145,7 +220,7 @@
             </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" id="checkout">
             @Html.LabelFor(model => model.Checkout, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Checkout, new { htmlAttributes = new { @class = "form-control" } })
