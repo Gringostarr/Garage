@@ -29,7 +29,9 @@
             @Html.DisplayNameFor(model => model.NumberOfWheels)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Wingspan)
+            <a href="?orderBy=wingspan">
+                @Html.DisplayNameFor(model => model.Wingspan)
+            </a>
         </th>
         <th>
             @Html.DisplayNameFor(model => model.NumberOfPropellers)
@@ -38,12 +40,12 @@
             @Html.DisplayNameFor(model => model.HasMuffler)
         </th>
         <th>
-            <a href="?sort=cc">
+            <a href="?orderBy=cm³">
                @Html.DisplayNameFor(model => model.CubicCentimeter)
             </a>
         </th>
         <th>
-            <a href="?sort=hp">
+            <a href="?orderBy=hp">
                 @Html.DisplayNameFor(model => model.HorsePower)
             </a>
         </th>
@@ -51,7 +53,7 @@
             @Html.DisplayNameFor(model => model.IsCabriolet)
         </th>
         <th>
-            <a href="?sort=capacity">
+            <a href="?orderBy=capacity">
                 @Html.DisplayNameFor(model => model.PassengerCapacity)
             </a>
         </th>
@@ -59,13 +61,17 @@
             @Html.DisplayNameFor(model => model.BusNumber)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.MaxKnotSpeed)
+            <a href="?orderBy=speed">
+                @Html.DisplayNameFor(model => model.MaxKnotSpeed)
+            </a>
         </th>
         <th>
             @Html.DisplayNameFor(model => model.isSailingboat)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.VehicleType)
+            <a href="?orderBy=vhclType">
+                @Html.DisplayNameFor(model => model.VehicleType)
+            </a>
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Checkin)

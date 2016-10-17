@@ -14,14 +14,38 @@ namespace Garage2.Models
         private Garage2Context db = new Garage2Context();
 
         // GET: Vehicles
-        public ActionResult Index(string searchString)
+        public ActionResult Index(string orderBy)
         {
-            var vehicles = from v in db.Vehicles
-                           select v;
+            var vehicles = db.Vehicles.ToList();
 
-            if (!String.IsNullOrEmpty(searchString))
+            if (!String.IsNullOrEmpty(orderBy))
             {
-                vehicles = vehicles.Where(s => s.Regnr.Contains(searchString));
+                switch (orderBy)
+                {
+                    case "cm³":
+                        vehicles = vehicles.OrderBy(v => v.CubicCentimeter).ToList();
+                        break;
+
+                    case "capacity":
+                        vehicles = vehicles.OrderBy(v => v.PassengerCapacity).ToList();
+                        break;
+
+                    case "hp":
+                        vehicles = vehicles.OrderBy(v => v.HorsePower).ToList();
+                        break;
+
+                    case "wingspan":
+                        vehicles = vehicles.OrderBy(v => v.Wingspan).ToList();
+                        break;
+
+                    case "speed":
+                        vehicles = vehicles.OrderBy(v => v.MaxKnotSpeed).ToList();
+                        break;
+
+                    default:
+                        vehicles = vehicles.Where(s => s.Regnr.Contains(orderBy)).ToList();
+                        break;
+                }
             }
 
             return View(vehicles);
