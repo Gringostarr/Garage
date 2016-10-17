@@ -1,0 +1,131 @@
+﻿@model IEnumerable<Garage2.Models.Vehicle>
+
+@{
+    ViewBag.Title = "Search";
+}
+
+<h2>Search</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+
+</p>
+<form asp-controller="Vehicles" asp-action="Index">
+    <p>
+        Title: <input type="text" name="SearchString">
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Regnr)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Color)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumberOfWheels)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Wingspan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumberOfPropellers)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HasMuffler)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CubicCentimeter)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HorsePower)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsCabriolet)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PassengerCapacity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BusNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaxKnotSpeed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.isSailingboat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VehicleType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Checkin)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Checkout)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Regnr)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Color)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumberOfWheels)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Wingspan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumberOfPropellers)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HasMuffler)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CubicCentimeter)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HorsePower)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsCabriolet)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PassengerCapacity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BusNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaxKnotSpeed)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.isSailingboat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VehicleType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Checkin)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Checkout)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
