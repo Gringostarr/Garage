@@ -14,10 +14,32 @@ namespace Garage2.Models
         private Garage2Context db = new Garage2Context();
 
         // GET: Vehicles
-        public ActionResult Index()
+        public ActionResult Index(string searchString)
         {
-            return View(db.Vehicles.ToList());
+            var vehicles = from v in db.Vehicles
+                           select v;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                vehicles = vehicles.Where(s => s.Regnr.Contains(searchString));
+            }
+
+            return View(vehicles);
+            //return View(db.Vehicles.ToList());
         }
+        // GET: Vehicles
+        //public ActionResult Search(string searchString)
+        //{
+            //var vehicles = from v in db.Vehicles
+            //             select v;
+
+            //if (!String.IsNullOrEmpty(searchString))
+            //{
+            //   vehicles = vehicles.Where(s => s.Regnr.Contains(searchString));
+            //}
+
+            //return View(vehicles);
+        //}
 
         // GET: Vehicles/Details/5
         public ActionResult Details(int? id)
