@@ -1,15 +1,15 @@
 ﻿@model IEnumerable<Garage2.Models.Vehicle>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Search";
 }
 
-<h2>Index</h2>
+<h2>Search</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
-</p>
 
+</p>
 <form asp-controller="Vehicles" asp-action="Index">
     <p>
         Title: <input type="text" name="SearchString">
@@ -29,9 +29,7 @@
             @Html.DisplayNameFor(model => model.NumberOfWheels)
         </th>
         <th>
-            <a href="?orderBy=wingspan">
-                @Html.DisplayNameFor(model => model.Wingspan)
-            </a>
+            @Html.DisplayNameFor(model => model.Wingspan)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.NumberOfPropellers)
@@ -40,38 +38,28 @@
             @Html.DisplayNameFor(model => model.HasMuffler)
         </th>
         <th>
-            <a href="?orderBy=cm³">
-               @Html.DisplayNameFor(model => model.CubicCentimeter)
-            </a>
+            @Html.DisplayNameFor(model => model.CubicCentimeter)
         </th>
         <th>
-            <a href="?orderBy=hp">
-                @Html.DisplayNameFor(model => model.HorsePower)
-            </a>
+            @Html.DisplayNameFor(model => model.HorsePower)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.IsCabriolet)
         </th>
         <th>
-            <a href="?orderBy=capacity">
-                @Html.DisplayNameFor(model => model.PassengerCapacity)
-            </a>
+            @Html.DisplayNameFor(model => model.PassengerCapacity)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.BusNumber)
         </th>
         <th>
-            <a href="?orderBy=speed">
-                @Html.DisplayNameFor(model => model.MaxKnotSpeed)
-            </a>
+            @Html.DisplayNameFor(model => model.MaxKnotSpeed)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.isSailingboat)
         </th>
         <th>
-            <a href="?orderBy=vhclType">
-                @Html.DisplayNameFor(model => model.VehicleType)
-            </a>
+            @Html.DisplayNameFor(model => model.VehicleType)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Checkin)
