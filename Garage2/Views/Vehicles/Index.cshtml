@@ -9,6 +9,14 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+
+<form asp-controller="Vehicles" asp-action="Index">
+    <p>
+        Title: <input type="text" name="SearchString">
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+
 <table class="table">
     <tr>
         <th>
@@ -30,16 +38,22 @@
             @Html.DisplayNameFor(model => model.HasMuffler)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CubicCentimeter)
+            <a href="?sort=cc">
+               @Html.DisplayNameFor(model => model.CubicCentimeter)
+            </a>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.HorsePower)
+            <a href="?sort=hp">
+                @Html.DisplayNameFor(model => model.HorsePower)
+            </a>
         </th>
         <th>
             @Html.DisplayNameFor(model => model.IsCabriolet)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.PassengerCapacity)
+            <a href="?sort=capacity">
+                @Html.DisplayNameFor(model => model.PassengerCapacity)
+            </a>
         </th>
         <th>
             @Html.DisplayNameFor(model => model.BusNumber)
